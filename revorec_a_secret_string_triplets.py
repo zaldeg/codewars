@@ -8,8 +8,21 @@ def change_if_need(letters, a, b):
 
 
 def recoverSecret(triplets):
-    r = list(set([i for l in triplets for i in l]))
-    print(r)
+    letters = set()
+    for i in triplets:
+        for j in i:
+            letters.add(j)
+    letters = list(letters)
+    while True:
+        flag = letters[::]
+        for i in triplets:
+            a, b, c = i
+            letters = change_if_need(letters, a, b)
+            letters = change_if_need(letters, b, c)
+            letters = change_if_need(letters, a, c)
+        if flag == letters:
+            break
+    return "".join(letters)
 
 
 triplets = [
