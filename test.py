@@ -1,25 +1,14 @@
-def change_if_need(letters, a, b):
-    if letters.index(a) > letters.index(b):
-        letters[letters.index(a)], letters[letters.index(b)] = (
-            letters[letters.index(b)],
-            letters[letters.index(a)],
-        )
-    return letters
+def power(a, n):
+    if n == 2:
+        return a * a
+    if n % 2 == 0:
+        return power(a, n / 2) * power(a, n / 2)
+    if n == 1:
+        return a
+    if n % 2 == 1:
+        return a * power(a, (n - 1) / 2) * power(a, (n - 1) / 2)
 
 
-def recoverSecret(triplets):
-    r = list(set([i for l in triplets for i in l]))
-    print(r)
-
-
-triplets = [
-    ["t", "u", "p"],
-    ["w", "h", "i"],
-    ["t", "s", "u"],
-    ["a", "t", "s"],
-    ["h", "a", "p"],
-    ["t", "i", "s"],
-    ["w", "h", "s"],
-]
-
-print(recoverSecret(triplets))
+a = 2
+n = 3
+print(power(2, 10))
